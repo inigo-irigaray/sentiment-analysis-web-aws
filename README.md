@@ -1,6 +1,24 @@
 # SageMaker Deployment Project
 
-The notebook and Python files provided here, once completed, result in a simple web app which interacts with a deployed recurrent neural network performing sentiment analysis on movie reviews. This project assumes some familiarity with SageMaker, the mini-project, Sentiment Analysis using XGBoost, should provide enough background.
+The notebook and Python files provided here, once completed, result in a simple web app which interacts with a deployed recurrent neural network performing sentiment analysis on movie reviews.
+
+## Files
+
+### `train`
+
+The `train`directory includes python scripts with the RNN model architecture in PyTorch and the training loop. The model architecture consists of an embedding layer of the input data, followed by a Long-Short Term Memory recurrent neural network, a linear layer and a sigmoid activation function that outputs the estimated sentiment of the movie review. The `train.py` script accepts input data already preprocessed, and performs the training loop according to the specified hyperparameters, including epochs, batch size, layer dimensions and vocabulary size, among others.
+
+### `serve`
+
+The `serve` directory includes the model and predict files that will be used to deploy the trained model to be used by the sentiment analysis web app. Additionally, it includes a `utils.py` file to preprocess any raw input text. The functions in this file will be used by the predict functions to create a full working pipeline to be deployed on the SageMaker endpoint. 
+
+### `website`
+
+The `website` directory include the html website file, to be updated with the newly created endpoint url.
+
+### `sentiment_analysis.ipynb`
+
+This Jupyter Notebook file contains the Sagemaker notebook integrating all files aforementioned to run the project. It contains a series of instructions to be followed and better understand the project.
 
 ## Setup
 
